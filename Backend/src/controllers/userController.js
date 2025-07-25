@@ -9,17 +9,17 @@ const bcrypt = require('bcryptjs')
 
 const jwtsecret = process.env.JWT_SECRET;
 
-const signup = async (req, res) => {
+const register = async (req, res) => {
 
     console.log("Signup route hit");
 
     try {
         const {username , password} = req.body;
 
-        const flag = await mongoose.findOne({username});
+        const flag = await userModel.findOne({username});
         if(flag)
         {
-            return res.status().json({
+            return res.status(409).json({
                 message : "User already exist, please Sign In"
             })
         }
@@ -40,7 +40,7 @@ const signup = async (req, res) => {
 
 };
 
-const signin =  async (req, res) => {
+const login =  async (req, res) => {
     try {
         const { username, password } = req.body;
 
@@ -51,7 +51,7 @@ const signin =  async (req, res) => {
         }
         const passwordMatch = await bcrypt.compare(password, user.password);
         
-        if(!passwordMatch) res.status(401).send({message : 'Invalid Credentials'})
+        if(!passwordMatch) return res.status(401).send({message : 'Invalid Credentials'})
 
         const token = jwt.sign({ userId : user._id}, jwtsecret);
         res.status(200).send({access_token : token});
@@ -62,6 +62,6 @@ const signin =  async (req, res) => {
 };
 
 module.exports = {
-    signup,
-    signin
+   register, 
+   login
 }

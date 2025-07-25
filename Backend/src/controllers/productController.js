@@ -21,18 +21,18 @@ const addProduct = async (req, res) => {
         res.status(201).send({message : 'Product added', product_id : product._id});
 
     } catch (error) {
-        res.status(500).send(error);
+        res.status(500).send({ error : 'Error occured while adding product.'});
     }
 };
 
-const getProduct = async(req, res) => {
+const getProducts = async(req, res) => {
     try {
         
         const page = parseInt(req.query.page, 10) || 1; // wehre 10 is the base and 1 is the default value of the page
         const limit = parseInt(req.query.limit, 10) || 10;
         const skipPages = (page - 1) * limit;
 
-        const products = await productModel.find().skip(skip).limit(limit);
+        const products = await productModel.find().skip(skipPages).limit(limit);
 
         res.status(200).send(products);
 
@@ -56,7 +56,7 @@ const updateQuantity = async (req, res) => {
 
 module.exports = {
     addProduct, 
-    getProduct,
+    getProducts,
     updateQuantity
 }
 
