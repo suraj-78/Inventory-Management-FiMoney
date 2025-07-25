@@ -5,9 +5,9 @@ const productRoute = Router();
 const { userAuthmiddleware } = require("../middleware/userAuthVerify");
 
 
-productRoute.put("/addProduct", userAuthmiddleware, productController.addProduct);
-productRoute.get("/getProduct", userAuthmiddleware,  productController.getProduct);
-productRoute.post("/updateProduct",userAuthmiddleware, productController.updateQuantity);
+productRoute.post("/", userAuthmiddleware, productController.addProduct);
+productRoute.get("/", userAuthmiddleware,  productController.getProduct);
+productRoute.post("/:id/quantity",userAuthmiddleware, productController.updateQuantity);
 
 module.exports = {
     productRoute
