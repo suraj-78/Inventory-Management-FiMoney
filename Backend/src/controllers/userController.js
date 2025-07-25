@@ -3,14 +3,13 @@ const express = require("express");
 const { Router } = require('express')
 const userRoute = Router();
 const jwt = require("jsonwebtoken")
-const {z} = require('zod');
 const { userModel } = require('../models/userModel');
 const bcrypt = require('bcryptjs')
 
 
 const jwtsecret = process.env.JWT_SECRET;
 
-userRoute.post("/signup", async (req, res) => {
+const signup = async (req, res) => {
 
     console.log("Signup route hit");
 
@@ -39,9 +38,9 @@ userRoute.post("/signup", async (req, res) => {
         res.status(500).send({error : 'Server error'});
     }
 
-});
+};
 
-userRoute.post("/signin", async (req, res) => {
+const signin =  async (req, res) => {
     try {
         const { username, password } = req.body;
 
@@ -60,8 +59,9 @@ userRoute.post("/signin", async (req, res) => {
     } catch (error) {
         res.status(500).send({error : 'Internal server error'});
     }
-})
+};
 
 module.exports = {
-    userRoute
+    signup,
+    signin
 }

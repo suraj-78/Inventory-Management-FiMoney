@@ -54,4 +54,10 @@ const updateQuantity = async (req, res) => {
     }
 }
 
+module.exports = {
+    addProduct, 
+    getProduct,
+    updateQuantity
+}
+
 
