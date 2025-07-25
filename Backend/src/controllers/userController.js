@@ -51,7 +51,8 @@ userRoute.post("/signin", async (req, res) => {
             return res.status(401).send({error : 'Invalid credentials'});
         }
         const passwordMatch = await bcrypt.compare(password, user.password);
-
+        
+        if(!passwordMatch) res.status(401).send({message : 'Invalid Credentials'})
 
         const token = jwt.sign({ userId : user._id}, jwtsecret);
         res.status(200).send({access_token : token});
