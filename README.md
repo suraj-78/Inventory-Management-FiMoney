@@ -19,6 +19,7 @@ This project is a backend application for a small business's inventory managemen
 * **Database**: MongoDB with Mongoose ODM
 * **Authentication**: JSON Web Tokens (`jsonwebtoken`)
 * **Password Hashing**: `bcryptjs`
+* **CORS**: `cors` (for enabling Cross-Origin Resource Sharing)
 
 ---
 
