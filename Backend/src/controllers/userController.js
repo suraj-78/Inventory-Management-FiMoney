@@ -57,7 +57,8 @@ const login =  async (req, res) => {
         res.status(200).send({access_token : token});
 
     } catch (error) {
-        res.status(500).send({error : 'Internal server error'});
+        console.error("LOGIN FAILED:", error);
+        res.status(500).send({ error: 'Internal server error' });
     }
 };
 
