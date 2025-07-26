@@ -21,7 +21,9 @@ const addProduct = async (req, res) => {
         res.status(201).send({message : 'Product added', product_id : product._id});
 
     } catch (error) {
-        res.status(500).send({ error : 'Error occured while adding product.'});
+        console.error("ADD PRODUCT FAILED:", error);
+        res.status(500).send({ error: "Error occured while adding product." });
+        
     }
 };
 

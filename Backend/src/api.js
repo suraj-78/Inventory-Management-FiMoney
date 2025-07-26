@@ -7,7 +7,7 @@ const apiRoute = Router();
 const userRoute = require('./Routes/userRoute');
 const productRoute = require('./Routes/productRoute');
 
-apiRoute.use("/user", userRoute);
+apiRoute.use("/", userRoute);
 apiRoute.use("/products", productRoute);
 
 
