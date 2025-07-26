@@ -49,7 +49,7 @@ Before you begin, ensure you have the following installed:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/your-username/inventory-project.git](https://github.com/your-username/inventory-project.git)
+    git clone (https://github.com/suraj-78/inventory-project.git)
     cd inventory-project/backend
     ```
 
