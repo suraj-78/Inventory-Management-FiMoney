@@ -81,6 +81,8 @@ Authenticates a user and returns a JWT access token.
 
 ---
 
+---
+
 ## Product Endpoints
 
 ### 1. Add a New Product
@@ -89,7 +91,14 @@ Adds a new product to the inventory.
 
 * **Method**: `POST`
 * **URL**: `/api/products`
-* **Authentication**: Required (Bearer Token).
+* **Authentication**: Required.
+
+**Headers:**
+```json
+{
+    "Authorization": "Bearer <your_access_token>"
+}
+```
 
 **Request Body (JSON):**
 ```json
@@ -118,11 +127,19 @@ Retrieves a paginated list of all products.
 
 * **Method**: `GET`
 * **URL**: `/api/products`
-* **Authentication**: Required (Bearer Token).
-* **Query Parameters**:
-    * `page` (optional, default: 1): The page number to retrieve.
-    * `limit` (optional, default: 10): The number of products per page.
-    * Example: `/api/products?page=2&limit=5`
+* **Authentication**: Required.
+
+**Headers:**
+```json
+{
+    "Authorization": "Bearer <your_access_token>"
+}
+```
+
+**Query Parameters**:
+* `page` (optional, default: 1): The page number to retrieve.
+* `limit` (optional, default: 10): The number of products per page.
+* Example: `/api/products?page=2&limit=5`
 
 **Success Response (200 OK):**
 ```json
@@ -144,9 +161,17 @@ Updates the quantity of a specific product using its ID.
 
 * **Method**: `PUT`
 * **URL**: `/api/products/:id/quantity`
-* **Authentication**: Required (Bearer Token).
-* **URL Parameter**:
-    * `:id` (required): The ID of the product to update.
+* **Authentication**: Required.
+
+**Headers:**
+```json
+{
+    "Authorization": "Bearer <your_access_token>"
+}
+```
+
+**URL Parameter not params**:
+* `:id` (required): The ID of the product to update.
 
 **Request Body (JSON):**
 ```json
@@ -164,12 +189,5 @@ Updates the quantity of a specific product using its ID.
     "quantity": 25,
     "price": 1200.50,
     ...
-}
-```
-
-**Error Response (404 Not Found):**
-```json
-{
-    "error": "Product not found"
 }
 ```
