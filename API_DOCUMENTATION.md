@@ -47,6 +47,7 @@ Creates a new user account.
 {
     "error": "Username already exists"
 }
+![Postman screenshot for all the Products](./docs/Screenshot%20register-user.png)
 ```
 
 ### 2. Login User
@@ -77,6 +78,7 @@ Authenticates a user and returns a JWT access token.
 {
     "error": "Invalid credentials"
 }
+![Postman screenshot for user Login](./docs/Screenshot%20user%20Login.png)
 ```
 
 ---
@@ -119,6 +121,8 @@ Adds a new product to the inventory.
     "message": "Product added successfully",
     "product_id": "60d5ec49e7a2a14e2c8a5e3a"
 }
+
+![Postman screenshot for adding a product](./docs/Screenshot%20addProduct.png)
 ```
 
 ### 2. Get All Products
@@ -153,6 +157,7 @@ Retrieves a paginated list of all products.
         ...
     }
 ]
+![Postman screenshot for all the Products](./docs/Screenshot%20getProduct.png)
 ```
 
 ### 3. Update Product Quantity
@@ -168,6 +173,7 @@ Updates the quantity of a specific product using its ID.
 {
     "Authorization": "Bearer <your_access_token>"
 }
+
 ```
 
 **URL Parameter not params**:
@@ -190,4 +196,5 @@ Updates the quantity of a specific product using its ID.
     "price": 1200.50,
     ...
 }
+![Postman screenshot for the Product quantity updataion](./docs/Screenshot%20updateProduct.png)
 ```

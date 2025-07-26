@@ -101,6 +101,7 @@ This project comes with a Python test script to validate all endpoints.
     ```
 
 ---
+![Terminal message after success test completion ](./docs/Screenshot%20api-testing.png)
 
 ## API Documentation
 
