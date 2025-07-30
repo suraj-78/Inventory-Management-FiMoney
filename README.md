@@ -13,6 +13,27 @@ This project is a backend application for a small business's inventory managemen
 
 ---
 
+---
+
+## Project Structure
+
+```
+.
+├── backend/            # Contains all the Node.js source code
+├── docs/               # Contains images and documentation assets
+├── frontend/           # Placeholder for the frontend application
+├── .dockerignore       # Specifies files for Docker to ignore
+├── .gitignore          # Specifies files for Git to ignore
+├── API_DOCUMENTATION.md  # Detailed API endpoint documentation
+├── docker-compose.yml  # Defines the Docker services
+├── Dockerfile          # Instructions to build the backend Docker image
+├── postman_test_data.json #
+├── README.md           # This file
+└── test_api.py         # Python script for testing the API
+```
+
+---
+
 ## Tech Stack
 
 * **Backend**: Node.js, Express.js
@@ -40,6 +61,7 @@ This project is a backend application for a small business's inventory managemen
 Before you begin, ensure you have the following installed:
 * [Node.js](https://nodejs.org/) (v14 or later recommended)
 * [npm](https://www.npmjs.com/)
+* [Docker](https://www.docker.com/products/docker-desktop/) and Docker Compose
 * [MongoDB](https://www.mongodb.com/try/download/community) (or a MongoDB Atlas account)
 * [Python](https://www.python.org/downloads/) (for running the test script)
 
@@ -72,11 +94,20 @@ Before you begin, ensure you have the following installed:
     PORT=5000
     ```
 
-4.  **Start the server:**
+---
+
+## 3. Running the Application
+
+### Running with Docker (Recommended)
+
+This is the easiest way to get the application running.
+
+1.  Make sure Docker Desktop is running on your machine.
+2.  From the root of the project, run the following command:
     ```bash
-    node index.js
+    docker-compose up --build
     ```
-    The server should now be running on `http://localhost:5000`.
+The server will be running and accessible at `http://localhost:5000`.
 
 ---
 
@@ -96,7 +127,7 @@ This project comes with a Python test script to validate all endpoints.
     ```
 
 3.  **Run the tests:**
-    Make sure your backend server is running, then execute the script from the project's root directory:
+    Make sure your backend server is running, then execute the script in new terminal from the project's root directory:
     ```bash
     py test_api.py
     ```
