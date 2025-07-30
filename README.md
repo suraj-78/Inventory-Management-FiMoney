@@ -98,7 +98,7 @@ Before you begin, ensure you have the following installed:
 
 ## 3. Running the Application
 
-### Running with Docker (Recommended)
+### Running with Docker
 
 This is the easiest way to get the application running.
 
